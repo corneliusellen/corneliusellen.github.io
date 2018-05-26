@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Intake</title>
+    <link rel="stylesheet" href="./lib/stylesheets/application.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <p>To get started, tell us more about your current outbreak:</p>
+      </div>
+      <div class="subheader">
+        <p>Have you identified an etiology?</p>
+      </div>
+      <div class="options">
+        <button type="button" name="button">Yes</button>
+        <button type="button" name="button">No</button>
+      </div>
+      <div class="subheader">
+        <p>Suspected Etiology: Select all that apply:</p>
+      </div>
+      <div class="options">
+        <div class="category-box">
+          <p>Bacterial:</p>
+          <button type="button" name="button">Salmonella</button>
+          <button type="button" name="button">Shiga toxin producing E. coli O157:H7</button>
+          <button type="button" name="button">Non-O157:H7 E.coli</button>
+          <button type="button" name="button">Campylobacter</button>
+          <button type="button" name="button">Shigella</button>
+        </div>
+
+        <div class="category-box">
+          <p>Viral:</p>
+          <button type="button" name="button">Norovirus</button>
+          <button type="button" name="button">Hepatitis A</button>
+        </div>
+
+        <div class="category-box">
+          <p>Others:</p>
+          <button type="button" name="button">Parastie</button>
+          <button type="button" name="button">Toxin</button>
+          <button type="button" name="button">Chemical</button>
+          <button type="button" name="button">Other</button>
+        </div>
+      </div>
+      <div class="subheader">
+        <p>Suspected Setting: Select all that apply:</p>
+      </div>
+      <div class="options">
+        <div class="category-box">
+          <button type="button" name="button">Restaurant</button>
+          <button type="button" name="button">Childcare</button>
+          <button type="button" name="button">School</button>
+          <button type="button" name="button">Camp</button>
+          <button type="button" name="button">Long term care facility</button>
+          <button type="button" name="button">Prison</button>
+        </div>
+        <div class="category-box">
+          <p>Events:</p>
+          <button type="button" name="button">Potluck</button>
+          <button type="button" name="button">Stockshow</button>
+        </div>
+      </div>
+      <div class="subheader">
+        <p>Suspected Transmission: Select all that apply:</p>
+      </div>
+      <div class="options">
+        <div class="category-box">
+          <button type="button" name="button">Foodborne</button>
+          <button type="button" name="button">Waterborne</button>
+          <button type="button" name="button">Person-to-person</button>
+          <button type="button" name="button">Animal</button>
+        </div>
+        <div class="category-box">
+          <button type="button" name="button">Environmental</button>
+          <button type="button" name="button">Other</button>
+          <button type="button" name="button">Unknown</button>
+        </div>
+      </div>
+      <div class="next">
+        <a href="demographics.html">
+        <button type="button" name="next" id="next-button">Next>></button></a>
+      </div>
+    </div>
+    <h2></h2>
+    <script src="bundle.js"></script>
+  </body>
+</html>

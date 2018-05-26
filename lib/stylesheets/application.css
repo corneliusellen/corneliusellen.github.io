@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Maven-light";
+  src: url("fonts/MavenProLight-200.otf"); }
+@font-face {
+  font-family: "Maven-heavy";
+  src: url("fonts/MavenProLight-300.otf"); }
+body, html {
+  margin: 0px;
+  height: 100%;
+  color: #1F2232;
+  font-family: "Maven-heavy", Arial, Helvetica, sans-serif;
+  font-size: 22px; }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+
+.header {
+  font-size: 30px;
+  background-color: #635380;
+  color: white; }
+
+.subheader {
+  background-color: #D0C0E0; }
+
+.options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.category-box {
+  display: flex;
+  flex-direction: column; }
+
+button {
+  border: 3px solid #D0C0E0;
+  background-color: white;
+  cursor: pointer;
+  padding: 15px 60px;
+  margin: 10px 25px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  color: #1F2232;
+  font-family: Arial; }
+
+button:hover {
+  background-color: #D0C0E0;
+  border: 3px solid #635380; }
+
+button:active {
+  color: white; }
+
+.next {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end; }
+
+#next-button {
+  background-color: #49306B;
+  color: white;
+  text-transform: uppercase; }
+
+#next-button:hover {
+  background-color: #635380;
+  color: white; }
+
+.welcome-box {
+  display: flex;
+  justify-content: center; }
+  .welcome-box p {
+    background-color: #635380;
+    color: white;
+    max-width: 650px;
+    padding: 50px;
+    margin: 50px;
+    font-size: 26px; }
+
+/*# sourceMappingURL=application.css.map */
