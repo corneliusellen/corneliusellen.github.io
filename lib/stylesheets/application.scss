@@ -1,7 +1,8 @@
 @import "partials/colors";
+
 @font-face {
   font-family: "Maven-light";
-  src: url("fonts/MavenProLight-200.otf");
+  src: url('fonts/MavenProLight-200.otf');
 }
 @font-face {
   font-family: "Maven-heavy";
@@ -13,7 +14,7 @@ body, html {
   height: 100%;
   color: $gunmetal;
   font-family: "Maven-heavy", Arial, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .main {
@@ -23,7 +24,7 @@ body, html {
 }
 
 .header {
-  font-size: 30px;
+  font-size: 22px;
   background-color: $cdc-purple;
   color: white;
 }
@@ -47,36 +48,38 @@ button {
   border: 3px solid $thistle;
   background-color: white;
   cursor: pointer;
-  padding: 15px 60px;
-  margin: 10px 25px;
+  padding: 5px 20px;
+  margin: 10px 20px;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 14px;
   color: $gunmetal;
   font-family: Arial;
 }
 
-button:hover {
-  background-color: $thistle;
-  border:  3px solid $cdc-purple;
+button:focus {
+  outline: 0;
 }
 
-button:active {
-  color: white;
-}
-
-.next {
+.one-link {
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
 }
 
-#next-button {
+.links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
   background-color: $imperial;
   color: white;
   text-transform: uppercase;
+  font-size: 20px;
 }
 
-#next-button:hover {
+.link:hover {
   background-color: $cdc-purple;
   color: white;
 }
@@ -92,4 +95,9 @@ button:active {
     margin: 50px;
     font-size: 26px;
   }
+}
+
+.marked {
+  background-color: $cdc-purple;
+  color: white;
 }

@@ -14,13 +14,14 @@
         <p>Have you identified an etiology?</p>
       </div>
       <div class="options">
-        <button type="button" name="button">Yes</button>
-        <button type="button" name="button">No</button>
+        <button type="button" name="button" id="etiology-yes">Yes</button>
+        <button type="button" name="button" id="etiology-no">No</button>
       </div>
-      <div class="subheader">
+
+      <div class="subheader etiology">
         <p>Suspected Etiology: Select all that apply:</p>
       </div>
-      <div class="options">
+      <div class="options etiology">
         <div class="category-box">
           <p>Bacterial:</p>
           <button type="button" name="button">Salmonella</button>
@@ -44,10 +45,20 @@
           <button type="button" name="button">Other</button>
         </div>
       </div>
-      <div class="subheader">
+
+      <div class="subheader symptom">
+        <p>Symptom Questions: Help us identify a suspected etiology:</p>
+      </div>
+      <div class="options symptom">
+        <button type="button" name="button">Some option</button>
+        <button type="button" name="button">Some option</button>
+        <button type="button" name="button">Some option</button>
+      </div>
+
+      <div class="subheader setting">
         <p>Suspected Setting: Select all that apply:</p>
       </div>
-      <div class="options">
+      <div class="options setting">
         <div class="category-box">
           <button type="button" name="button">Restaurant</button>
           <button type="button" name="button">Childcare</button>
@@ -62,10 +73,11 @@
           <button type="button" name="button">Stockshow</button>
         </div>
       </div>
-      <div class="subheader">
+
+      <div class="subheader transmission">
         <p>Suspected Transmission: Select all that apply:</p>
       </div>
-      <div class="options">
+      <div class="options transmission">
         <div class="category-box">
           <button type="button" name="button">Foodborne</button>
           <button type="button" name="button">Waterborne</button>
@@ -78,12 +90,12 @@
           <button type="button" name="button">Unknown</button>
         </div>
       </div>
-      <div class="next">
-        <a href="demographics.html">
-        <button type="button" name="next" id="next-button">Next>></button></a>
+
+      <div class="one-link intake">
+        <a href="demographics.html"><button type="button" name="next" class="link next">Next>></button></a>
       </div>
     </div>
-    <h2></h2>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="bundle.js"></script>
   </body>
 </html>
