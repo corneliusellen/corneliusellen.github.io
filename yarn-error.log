@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.6.0/libexec/bin/yarn.js add webpack-cli -D
+
+PATH: 
+  /Users/ellencornelius/asdf/shims:/Users/ellencornelius/asdf/bin:/Users/ellencornelius/.rbenv/shims:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  8.11.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/ellencornelius/turing/4mod/epi_question_builder/frontend/node_modules/webpack-command/node_modules/ansi-regex'
+
+npm manifest: 
+  {
+    "name": "frontend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "directories": {
+      "lib": "lib"
+    },
+    "dependencies": {
+      "webpack": "^4.9.1"
+    },
+    "devDependencies": {
+      "webpack-cli": "^2.1.4",
+      "webpack-command": "^0.2.0",
+      "webpack-dev-server": "^3.0.0"
+    },
+    "scripts": {
+      "build": "webpack --config webpack.config.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

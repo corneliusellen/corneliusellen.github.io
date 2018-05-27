@@ -1,3 +1,3 @@
-var sayHello = require(.'/sayHello');
+var sayHello = require('./say-hello');
 
-sayHello('Trevor', document.querySelector('h2')); 
+sayHello('Trevor', document.querySelector('h2'));
