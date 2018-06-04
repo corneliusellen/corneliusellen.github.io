@@ -41,6 +41,7 @@ body, html {
 
 .category-box {
   display: flex;
+  flex-wrap: column;
   flex-direction: column;
 }
 
