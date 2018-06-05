@@ -31,5 +31,7 @@ const renderData = (fileName) => {
     events.populateClinicals()
   } else if (fileName === 'exposures.html' || fileName === 'exposures') {
     events.populateExposures()
+  } else if (fileName === 'builder.html' || fileName === 'builder') {
+    events.populateQuestions()
   }
 }
