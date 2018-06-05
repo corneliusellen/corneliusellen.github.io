@@ -96,12 +96,28 @@ const sendClinicals = function() {
   })
 }
 
+const sendExposures = function() {
+  $('.link.next.exposure').on('click', function() {
+    var marked = $('body').find('.marked')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
 const populateDemographics = function() {
   questionRequests.getDemographics()
 }
 
 const populateClinicals = function() {
   questionRequests.getClinicals()
+}
+
+const populateExposures = function() {
+  questionRequests.getExposures()
 }
 
 module.exports = {
@@ -116,6 +132,8 @@ module.exports = {
   sendIntake,
   sendDemographics,
   sendClinicals,
+  sendExposures,
   populateDemographics,
-  populateClinicals
+  populateClinicals,
+  populateExposures
 }
