@@ -19,6 +19,7 @@ $(document).ready(function() {
   events.sendIntake()
   events.sendDemographics()
   events.sendClinicals()
+  events.sendExposures()
 })
 
 const renderData = (fileName) => {
@@ -28,5 +29,7 @@ const renderData = (fileName) => {
     events.populateDemographics()
   } else if (fileName === 'clinical.html' || fileName === 'clinical') {
     events.populateClinicals()
+  } else if (fileName === 'exposures.html' || fileName === 'exposures') {
+    events.populateExposures()
   }
 }
