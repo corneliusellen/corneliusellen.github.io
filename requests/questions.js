@@ -7,6 +7,56 @@ const questionsAPI = (path) => {
   })
 }
 
+const getQuestions = () => {
+  questionsAPI('questions')
+  .then(response => handleResponse(response))
+  .then(questions => appendEachQuestion(questions))
+  .catch(error => console.error({ error }))
+}
+
+const appendEachQuestion = (questions) => {
+  return questions.forEach(question => {
+    appendQuestion(question)
+  })
+}
+
+const appendQuestion = (question) => {
+  if (question.section_id == 1) {
+    appendDemographicSection(question)
+  } else if (question.section_id == 2) {
+    appendClinicalSection(question)
+  } else if (question.section_id == 3) {
+    appendExposureSection(question)
+  }
+}
+
+const appendDemographicSection = (question) => {
+  $('.section.demographic').append(
+    `<div class="selection" draggable="true">
+      <div class="select question">${question.text}</div>
+      <div class="select answer">${question.answers}</div>
+    </div>`
+  )
+}
+
+const appendClinicalSection = (question) => {
+  $('.section.clinical').append(
+    `<div class="selection" draggable="true">
+      <div class="select question">${question.text}</div>
+      <div class="select answer">${question.answers}</div>
+    </div>`
+  )
+}
+
+const appendExposureSection = (question) => {
+  $('.section.exposure').append(
+    `<div class="selection" draggable="true">
+      <div class="select question">${question.text}</div>
+      <div class="select answer">${question.answers}</div>
+    </div>`
+  )
+}
+
 const getExposures = () => {
   questionsAPI('exposures')
   .then(response => handleResponse(response))
@@ -82,5 +132,6 @@ const handleResponse = (response) => {
 module.exports = {
   getDemographics,
   getClinicals,
-  getExposures
+  getExposures,
+  getQuestions
 }
