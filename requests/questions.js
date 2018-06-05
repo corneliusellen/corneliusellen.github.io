@@ -7,6 +7,25 @@ const questionsAPI = (path) => {
   })
 }
 
+const getExposures = () => {
+  questionsAPI('exposures')
+  .then(response => handleResponse(response))
+  .then(questions => appendEachExposureQuestion(questions))
+  .catch(error => console.error({ error }))
+}
+
+const appendEachExposureQuestion = (questions) => {
+  return questions.forEach(question => {
+    appendExposureQuestion(question)
+  })
+}
+
+const appendExposureQuestion = (question) => {
+  $('.options.exposure').append(
+    `<button type="button" name="button" value="${question.id}">${question.text}</button>`
+  )
+}
+
 const getClinicals = () => {
   questionsAPI('clinicals')
   .then(response => handleResponse(response))
@@ -62,5 +81,6 @@ const handleResponse = (response) => {
 
 module.exports = {
   getDemographics,
-  getClinicals
+  getClinicals,
+  getExposures
 }
