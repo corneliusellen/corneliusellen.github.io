@@ -7,20 +7,39 @@ const questionsAPI = (path) => {
   })
 }
 
-const getDemographics = () => {
-  questionsAPI('demographics')
+const getClinicals = () => {
+  questionsAPI('clinicals')
   .then(response => handleResponse(response))
-  .then(questions => appendEachQuestion(questions))
+  .then(questions => appendEachClinicalQuestion(questions))
   .catch(error => console.error({ error }))
 }
 
-const appendEachQuestion = (questions) => {
+const appendEachClinicalQuestion = (questions) => {
   return questions.forEach(question => {
-    appendQuestion(question)
+    appendClinicalQuestion(question)
   })
 }
 
-const appendQuestion = (question) => {
+const appendClinicalQuestion = (question) => {
+  $('.options.clinical').append(
+    `<button type="button" name="button" value="${question.id}">${question.text}</button>`
+  )
+}
+
+const getDemographics = () => {
+  questionsAPI('demographics')
+  .then(response => handleResponse(response))
+  .then(questions => appendEachDemographicQuestion(questions))
+  .catch(error => console.error({ error }))
+}
+
+const appendEachDemographicQuestion = (questions) => {
+  return questions.forEach(question => {
+    appendDemographicQuestion(question)
+  })
+}
+
+const appendDemographicQuestion = (question) => {
   $('.options.demographics').append(
     `<button type="button" name="button" value="${question.id}">${question.text}</button>`
   )
@@ -42,5 +61,6 @@ const handleResponse = (response) => {
 }
 
 module.exports = {
-  getDemographics
+  getDemographics,
+  getClinicals
 }
