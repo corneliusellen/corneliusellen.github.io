@@ -43,6 +43,27 @@ const marked = function() {
   })
 }
 
+const markedFoodButton = function() {
+  $('body').on('click', '.food-button', function() {
+    $(this).toggleClass('marked')
+  })
+}
+
+const markedAllMenuItems = function() {
+  $('body').on('click', '.menu h2', function() {
+    $(this).siblings('.food-button').toggleClass('marked')
+  })
+}
+
+const markedSmallBox = function() {
+  $('body').on('click', '.small-box', function() {
+    $(this).toggleClass('marked');
+    restaurantRequests.getMenus()
+    $('.header.menu-items').slideDown("fast");
+    $('.menus').slideDown("fast");
+  })
+}
+
 const goBack = function() {
   $('.link.back').on('click', function() {
     window.history.back();
@@ -51,7 +72,9 @@ const goBack = function() {
 
 const searchRestaurants = function() {
   $('.restaurant-search-button').on('click', function() {
-    restaurantRequests.getRestaurants()
+    restaurantRequests.getRestaurants();
+    $('.header.restaurants').slideDown("fast");
+    $('.options-restaurants').slideDown("fast");
   })
 }
 
@@ -126,6 +149,9 @@ const populateQuestions = function() {
 
 module.exports = {
   marked,
+  markedSmallBox,
+  markedFoodButton,
+  markedAllMenuItems,
   etiologyIdentified,
   symptomOptions,
   etiologyOptions,
