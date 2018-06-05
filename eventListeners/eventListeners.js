@@ -120,6 +120,10 @@ const populateExposures = function() {
   questionRequests.getExposures()
 }
 
+const populateQuestions = function() {
+  questionRequests.getQuestions()
+}
+
 module.exports = {
   marked,
   etiologyIdentified,
@@ -135,5 +139,6 @@ module.exports = {
   sendExposures,
   populateDemographics,
   populateClinicals,
-  populateExposures
+  populateExposures,
+  populateQuestions
 }
