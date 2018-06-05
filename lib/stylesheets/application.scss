@@ -41,6 +41,7 @@ body, html {
 
 .category-box {
   display: flex;
+  flex-wrap: column;
   flex-direction: column;
 }
 
@@ -100,4 +101,34 @@ button:focus {
 .marked {
   background-color: $cdc-purple;
   color: white;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+}
+
+.selection {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid $thistle;
+  background-color: white;
+  cursor: pointer;
+  padding: 5px 20px;
+  margin: 10px 20px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: $gunmetal;
+  font-family: Arial;
+
+}
+
+.select {
+  padding: 20px;
+  max-width: 600px;
 }

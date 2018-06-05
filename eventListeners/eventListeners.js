@@ -1,43 +1,44 @@
-// module.exports = function (name, element) {
-//   element.textContent = 'Bye' + name + '!';
-// };
+var restaurantRequests = require('../requests/restaurants')
+var tagRequests = require('../requests/intake')
+var questionRequests = require('../requests/questions')
+var questionnaireRequests = require('../requests/questionnaire')
 
 const etiologyIdentified = function() {
   $('#etiology-yes').on('click', function() {
     $('#etiology-no').removeClass('marked');
     $('.symptom').hide();
-    $('.etiology').slideDown("fast");
+    $('.Etiology').slideDown("fast");
     $('.options.symptom').find('button').removeClass('marked');
   });
   $('#etiology-no').on('click', function() {
     $('#etiology-yes').removeClass('marked');
-    $('.etiology').hide();
+    $('.Etiology').hide();
     $('.symptom').slideDown("fast");
-    $('.options.etiology').find('button').removeClass('marked');
+    $('.options.Etiology').find('button').removeClass('marked');
   })
 }
 
 const etiologyOptions = function() {
-  $('.options.etiology').find('button').one("click", function() {
-    $('.setting').slideDown("fast");
+  $('body').find('.options.Etiology').one("click", 'button', function() {
+    $('.Setting').slideDown("fast");
   })
 }
 
 const symptomOptions = function() {
   $('.options.symptom').find('button').one("click", function() {
-    $('.setting').slideDown("fast");
+    $('.Setting').slideDown("fast");
   })
 }
 
 const settingOptions = function() {
-  $('.options.setting').find('button').one("click", function() {
-    $('.transmission').slideDown("fast");
+  $('body').find('.options.Setting').one("click", 'button', function() {
+    $('.Transmission').slideDown("fast");
     $('.one-link.intake').slideDown("fast")
   })
 }
 
 const marked = function() {
-  $('button').on('click', function() {
+  $('body').on('click', 'button', function() {
     $(this).toggleClass('marked')
   })
 }
@@ -48,11 +49,96 @@ const goBack = function() {
   })
 }
 
+const searchRestaurants = function() {
+  $('.restaurant-search-button').on('click', function() {
+    restaurantRequests.getRestaurants()
+  })
+}
+
+const populateTags = function() {
+  tagRequests.getTags()
+}
+
+const sendIntake = function() {
+  $('.link.next.intake').on('click', function() {
+    var marked = $('body').find('.marked')
+    var tags = []
+    Object.entries(marked).forEach(([key, value]) => {
+      tags.push(value.value)
+    });
+    tags.splice(-2,2);
+    tags.splice(0,1);
+    tagRequests.postTags("POST", tags);
+  })
+}
+
+const sendDemographics = function() {
+  $('.link.next.demographic').on('click', function() {
+    var marked = $('body').find('.marked')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
+const sendClinicals = function() {
+  $('.link.next.clinical').on('click', function() {
+    var marked = $('body').find('.marked')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
+const sendExposures = function() {
+  $('.link.next.exposure').on('click', function() {
+    var marked = $('body').find('.marked')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
+const populateDemographics = function() {
+  questionRequests.getDemographics()
+}
+
+const populateClinicals = function() {
+  questionRequests.getClinicals()
+}
+
+const populateExposures = function() {
+  questionRequests.getExposures()
+}
+
+const populateQuestions = function() {
+  questionRequests.getQuestions()
+}
+
 module.exports = {
   marked,
   etiologyIdentified,
   symptomOptions,
   etiologyOptions,
   settingOptions,
-  goBack
+  goBack,
+  searchRestaurants,
+  populateTags,
+  sendIntake,
+  sendDemographics,
+  sendClinicals,
+  sendExposures,
+  populateDemographics,
+  populateClinicals,
+  populateExposures,
+  populateQuestions
 }
