@@ -17,6 +17,8 @@ $(document).ready(function() {
   events.searchRestaurants()
   events.marked()
   events.sendIntake()
+  events.sendDemographics()
+  events.sendClinicals()
 })
 
 const renderData = (fileName) => {
