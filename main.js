@@ -24,5 +24,7 @@ const renderData = (fileName) => {
     events.populateTags()
   } else if (fileName === 'demographics.html' || fileName === 'demographics') {
     events.populateDemographics()
+  } else if (fileName === 'clinical.html' || fileName === 'clinical') {
+    events.populateClinicals()
   }
 }
