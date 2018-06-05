@@ -75,6 +75,10 @@ const populateDemographics = function() {
   questionRequests.getDemographics()
 }
 
+const populateClinicals = function() {
+  questionRequests.getClinicals()
+}
+
 module.exports = {
   marked,
   etiologyIdentified,
@@ -85,5 +89,6 @@ module.exports = {
   searchRestaurants,
   populateTags,
   sendIntake,
-  populateDemographics
+  populateDemographics,
+  populateClinicals
 }
