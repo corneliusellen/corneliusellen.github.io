@@ -1,6 +1,7 @@
 var restaurantRequests = require('../requests/restaurants')
 var tagRequests = require('../requests/intake')
 var questionRequests = require('../requests/questions')
+var questionnaireRequests = require('../requests/questionnaire')
 
 const etiologyIdentified = function() {
   $('#etiology-yes').on('click', function() {
@@ -71,6 +72,30 @@ const sendIntake = function() {
   })
 }
 
+const sendDemographics = function() {
+  $('.link.next.demographic').on('click', function() {
+    var marked = $('body').find('.marked')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
+const sendClinicals = function() {
+  $('.link.next.clinical').on('click', function() {
+    var marked = $('body').find('.marked')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
 const populateDemographics = function() {
   questionRequests.getDemographics()
 }
@@ -89,6 +114,8 @@ module.exports = {
   searchRestaurants,
   populateTags,
   sendIntake,
+  sendDemographics,
+  sendClinicals,
   populateDemographics,
   populateClinicals
 }
