@@ -27,6 +27,7 @@ $(document).ready(function() {
   events.sendDemographics()
   events.sendClinicals()
   events.sendExposures()
+  events.sendFoods()
 })
 
 const renderData = (fileName) => {
