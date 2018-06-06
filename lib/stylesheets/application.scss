@@ -25,12 +25,13 @@ body, html {
 
 .header {
   font-size: 22px;
-  background-color: $cdc-purple;
+  background-color: $cyan;
   color: white;
+
 }
 
 .subheader {
-  background-color: $thistle;
+  background-color: $cdc-blue;
 }
 
 .options {
@@ -48,7 +49,7 @@ body, html {
 .small-box {
   display: flex;
   flex-direction: column;
-  border: 3px solid $thistle;
+  border: 3px solid $cdc-blue;
   background-color: white;
   cursor: pointer;
   padding: 5px 20px;
@@ -61,12 +62,18 @@ body, html {
 
 .category-box {
   display: flex;
-  flex-wrap: column;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
+.category-box-big {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 button {
-  border: 3px solid $thistle;
+  border: 3px solid $cdc-blue;
   background-color: white;
   cursor: pointer;
   padding: 5px 20px;
@@ -75,6 +82,7 @@ button {
   font-size: 14px;
   color: $gunmetal;
   font-family: Arial;
+  width: 230px;
 }
 
 button:focus {
@@ -94,27 +102,33 @@ button:focus {
 }
 
 .link {
-  background-color: $imperial;
+  background-color: $cyan;
   color: white;
   text-transform: uppercase;
   font-size: 20px;
 }
 
 .link:hover {
-  background-color: $cdc-purple;
+  background-color: $seaweed;
   color: white;
 }
 
 .welcome-box {
   display: flex;
   justify-content: center;
-  p {
-    background-color: $cdc-purple;
+  background-color: #71d0f5;
+  margin-top: 130px;
+  min-height: 160px;
+  h2 {
     color: white;
-    max-width: 650px;
-    padding: 50px;
-    margin: 50px;
-    font-size: 26px;
+    text-shadow: 1px 1px $gray;
+    padding: 10px;
+    font-size: 50px;
+    font-weight: 1500;
+  }
+  p {
+    align-self: flex-end;
+    padding-bottom: 42px;
   }
 }
 
@@ -131,7 +145,7 @@ button:focus {
 .selection {
   display: flex;
   justify-content: space-between;
-  border: 3px solid $thistle;
+  border: 3px solid $cdc-blue;
   background-color: white;
   cursor: pointer;
   padding: 5px 20px;
@@ -151,13 +165,14 @@ button:focus {
 .menus {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 
   h2 {
     cursor: pointer;
@@ -167,7 +182,7 @@ button:focus {
 .food-button {
   display: flex;
   flex-direction: column;
-  border: 3px solid $thistle;
+  border: 3px solid $cdc-blue;
   background-color: white;
   cursor: pointer;
   padding: 5px 20px;
@@ -180,6 +195,25 @@ button:focus {
 }
 
 .marked {
-  background-color: $cdc-purple;
+  background-color: $cyan;
+  color: white;
+}
+
+.index {
+  background-image: url('cdc_steal.png');
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.start {
+  margin-top: 220px;
+  background-color: white;
+  color: $gunmetal
+}
+
+.restaurant-search-button:hover {
+  background-color: $cyan;
   color: white;
 }
