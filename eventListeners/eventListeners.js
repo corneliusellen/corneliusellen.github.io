@@ -131,6 +131,25 @@ const sendExposures = function() {
   })
 }
 
+const sendFoods = function() {
+  $('.link.next.restaurant').on('click', function() {
+    var foods = []
+    var marked = $('body').find('.marked')
+    marked.splice(0,2)
+    Object.entries(marked).forEach(([key, value]) => {
+        foods.push(value)
+    })
+    foods.splice(-2,2)
+    var payload=[]
+    foods.forEach(food => {
+      payload.push(
+        [food.getElementsByTagName('p')[0].innerHTML, food.getElementsByTagName('p')[1].innerHTML]
+      )
+    })
+    restaurantRequests.postFoods(payload)
+  })
+}
+
 const populateDemographics = function() {
   questionRequests.getDemographics()
 }
@@ -144,7 +163,8 @@ const populateExposures = function() {
 }
 
 const populateQuestions = function() {
-  questionRequests.getQuestions()
+  questionRequests.getQuestions();
+  questionRequests.getMenuItems()
 }
 
 module.exports = {
@@ -163,6 +183,7 @@ module.exports = {
   sendDemographics,
   sendClinicals,
   sendExposures,
+  sendFoods,
   populateDemographics,
   populateClinicals,
   populateExposures,
