@@ -1,5 +1,16 @@
 const baseURL = require('./railsAPI').baseURL()
 
+const foodsAPIFetch = (method, payload) => {
+  return fetch(`${baseURL}/api/v1/questionnaires/1/foods`, {
+    method: `${method}`,
+    headers: {'Content-Type': 'application/json', 'foods': `${JSON.stringify(payload)}`},
+  })
+}
+
+const postFoods = (payload) => {
+  foodsAPIFetch('POST', payload)
+}
+
 const menusAPIFetch = (method, venue_id) => {
   return fetch(`${baseURL}/api/v1/search/menus`, {
     method: `${method}`,
@@ -95,5 +106,6 @@ const handleResponse = (response) => {
 
 module.exports = {
   getRestaurants,
-  getMenus
+  getMenus,
+  postFoods
 }
