@@ -7,6 +7,28 @@ const questionsAPI = (path) => {
   })
 }
 
+const getMenuItems = () => {
+  questionsAPI('foods')
+  .then(response => handleResponse(response))
+  .then(menuItems => appendEachMenuItem(menuItems))
+  .catch(error => console.error({ error }))
+}
+
+const appendEachMenuItem = (menuItems) => {
+  return menuItems.forEach(menuItem => {
+    appendMenuItem(menuItem)
+  })
+}
+
+const appendMenuItem = (menuItem) => {
+  $('.section.menu-items').append(
+    `<div class="selection" draggable="true">
+      <div class="select dish">${menuItem.dish}</div>
+      <div class="select ingredients">${menuItem.ingredients}</div>
+    </div>`
+  )
+}
+
 const getQuestions = () => {
   questionsAPI('questions')
   .then(response => handleResponse(response))
@@ -133,5 +155,6 @@ module.exports = {
   getDemographics,
   getClinicals,
   getExposures,
-  getQuestions
+  getQuestions,
+  getMenuItems
 }

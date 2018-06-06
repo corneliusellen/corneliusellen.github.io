@@ -43,6 +43,27 @@ const marked = function() {
   })
 }
 
+const markedFoodButton = function() {
+  $('body').on('click', '.food-button', function() {
+    $(this).toggleClass('marked')
+  })
+}
+
+const markedAllMenuItems = function() {
+  $('body').on('click', '.menu h2', function() {
+    $(this).siblings('.food-button').toggleClass('marked')
+  })
+}
+
+const markedSmallBox = function() {
+  $('body').on('click', '.small-box', function() {
+    $(this).toggleClass('marked');
+    restaurantRequests.getMenus()
+    $('.header.menu-items').slideDown("fast");
+    $('.menus').slideDown("fast");
+  })
+}
+
 const goBack = function() {
   $('.link.back').on('click', function() {
     window.history.back();
@@ -51,7 +72,9 @@ const goBack = function() {
 
 const searchRestaurants = function() {
   $('.restaurant-search-button').on('click', function() {
-    restaurantRequests.getRestaurants()
+    restaurantRequests.getRestaurants();
+    $('.header.restaurants').slideDown("fast");
+    $('.options-restaurants').slideDown("fast");
   })
 }
 
@@ -108,6 +131,25 @@ const sendExposures = function() {
   })
 }
 
+const sendFoods = function() {
+  $('.link.next.restaurant').on('click', function() {
+    var foods = []
+    var marked = $('body').find('.marked')
+    marked.splice(0,2)
+    Object.entries(marked).forEach(([key, value]) => {
+        foods.push(value)
+    })
+    foods.splice(-2,2)
+    var payload=[]
+    foods.forEach(food => {
+      payload.push(
+        [food.getElementsByTagName('p')[0].innerHTML, food.getElementsByTagName('p')[1].innerHTML]
+      )
+    })
+    restaurantRequests.postFoods(payload)
+  })
+}
+
 const populateDemographics = function() {
   questionRequests.getDemographics()
 }
@@ -121,11 +163,15 @@ const populateExposures = function() {
 }
 
 const populateQuestions = function() {
-  questionRequests.getQuestions()
+  questionRequests.getQuestions();
+  questionRequests.getMenuItems()
 }
 
 module.exports = {
   marked,
+  markedSmallBox,
+  markedFoodButton,
+  markedAllMenuItems,
   etiologyIdentified,
   symptomOptions,
   etiologyOptions,
@@ -137,6 +183,7 @@ module.exports = {
   sendDemographics,
   sendClinicals,
   sendExposures,
+  sendFoods,
   populateDemographics,
   populateClinicals,
   populateExposures,
