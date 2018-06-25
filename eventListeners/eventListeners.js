@@ -1,7 +1,22 @@
+var authenticate = require('../requests/authentication')
 var restaurantRequests = require('../requests/restaurants')
 var tagRequests = require('../requests/intake')
 var questionRequests = require('../requests/questions')
 var questionnaireRequests = require('../requests/questionnaire')
+
+const loginSubmit = function() {
+  $('#login-button').on('click', function() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    authenticate.getToken(email, password)
+  })
+}
+
+const logoutSubmit = function() {
+  $('#logout-button').on('click', function() {
+    localStorage.removeItem('token')
+  })
+}
 
 const etiologyIdentified = function() {
   $('#etiology-yes').on('click', function() {
@@ -168,6 +183,8 @@ const populateQuestions = function() {
 }
 
 module.exports = {
+  loginSubmit,
+  logoutSubmit,
   marked,
   markedSmallBox,
   markedFoodButton,

@@ -1,9 +1,10 @@
 const baseURL = require('./railsAPI').baseURL()
 
 const questionsAPI = (path) => {
-  return fetch(`${baseURL}/api/v1/questionnaires/1/${path}`, {
+  var token = localStorage.getItem('token');
+  return fetch(`${baseURL}/api/v1/${path}`, {
     method: 'GET',
-    headers: {'Content-Type': 'application/json'},
+    headers: {'Content-Type': 'application/json', 'Authorization': token},
   })
 }
 

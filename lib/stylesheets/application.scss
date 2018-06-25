@@ -27,7 +27,6 @@ body, html {
   font-size: 22px;
   background-color: $cyan;
   color: white;
-
 }
 
 .subheader {
@@ -115,22 +114,39 @@ button:focus {
 
 .welcome-box {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   background-color: #71d0f5;
-  margin-top: 130px;
-  min-height: 160px;
-  h2 {
-    color: white;
-    text-shadow: 1px 1px $gray;
-    padding: 10px;
-    font-size: 50px;
-    font-weight: 1500;
+  margin-top: 20vh;
+  max-height: 180px;
   }
-  p {
-    align-self: flex-end;
-    padding-bottom: 42px;
+  .welcome-box-heading {
+    display: flex;
+    justify-content: center;
+    h2 {
+      color: white;
+      text-shadow: 1px 1px $gray;
+      font-size: 50px;
+      font-weight: 1500;
+      padding: 5px;
+    }
+    p {
+      margin-top: 40px;
+      align-self: center;
+      padding: 5px;
+    }
   }
-}
+  .login {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    align-items: center;
+
+    .login-box {
+      display: flex;
+      padding: 0px 5px 0px 5px;
+      align-items: center;
+    }
+  }
 
 .section {
   display: flex;
@@ -216,4 +232,49 @@ button:focus {
 .restaurant-search-button:hover {
   background-color: $cyan;
   color: white;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.dashboard-box {
+  display: flex;
+}
+
+.questionnaire {
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    max-height: 200px;
+  }
+
+  button {
+    max-width: 130px;
+    align-items: center;
+    margin: 2px;
+  }
+}
+
+.new {
+  background-color: $azureish;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+  }
+}
+
+.new:hover {
+  background-color: $cdc-blue;
+  button {
+    background-color: $azureish;
+  }
 }
