@@ -8,11 +8,21 @@
   <body>
     <div class="main index">
       <div class="welcome-box">
-        <h2>Outbreak <i>READY</i></h2>
-        <p>A questionnaire builder.</p>
-      </div>
-      <div class="one-link">
-        <a href="intake.html"><button type="button" name="next" class="link next start">Start Building>></button></a>
+        <div class="welcome-box-heading">
+          <h2>Outbreak <i>READY</i></h2>
+          <p>A questionnaire builder.</p>
+        </div>
+        <div class="login">
+          <div class="login-box">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+          </div>
+          <div class="login-box">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+          </div>
+          <a href="dashboard.html"><button type="button" id="login-button">Login</button></a>
+        </div>
       </div>
     </div>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

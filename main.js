@@ -13,6 +13,8 @@ $(document).ready(function() {
   $('.options-restaurants').hide()
   $('.header.menu-items').hide()
   $('.menus').hide()
+  events.loginSubmit()
+  events.logoutSubmit()
   events.etiologyIdentified()
   events.symptomOptions()
   events.etiologyOptions()

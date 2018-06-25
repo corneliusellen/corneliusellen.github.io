@@ -1,17 +1,19 @@
 const baseURL = require('./railsAPI').baseURL()
 
 const intakeAPIFetch = (method, body) => {
+  var token = localStorage.getItem('token');
   return fetch(`${baseURL}/api/v1/tags`, {
     method: `${method}`,
-    headers: {'Content-Type': 'application/json'},
+    headers: {'Content-Type': 'application/json', 'Authorization': token},
     body: JSON.stringify(body)
   })
 }
 
 const postTags = (method, tags) => {
-  fetch(`${baseURL}/api/v1/questionnaires/1/intakes`, {
+  var token = localStorage.getItem('token');
+  fetch(`${baseURL}/api/v1/intakes`, {
     method: `${method}`,
-    headers: {'Content-Type': 'application/json', 'Tags': `${JSON.stringify(tags)}`},
+    headers: {'Content-Type': 'application/json', 'Tags': `${JSON.stringify(tags)}`, 'Authorization': token},
   })
 }
 

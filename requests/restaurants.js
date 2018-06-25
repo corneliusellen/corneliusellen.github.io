@@ -1,9 +1,10 @@
 const baseURL = require('./railsAPI').baseURL()
 
 const foodsAPIFetch = (method, payload) => {
-  return fetch(`${baseURL}/api/v1/questionnaires/1/foods`, {
+  var token = localStorage.getItem('token');
+  return fetch(`${baseURL}/api/v1/foods`, {
     method: `${method}`,
-    headers: {'Content-Type': 'application/json', 'foods': `${JSON.stringify(payload)}`},
+    headers: {'Content-Type': 'application/json', 'foods': `${JSON.stringify(payload)}`, 'Authorization': token},
   })
 }
 
@@ -12,9 +13,10 @@ const postFoods = (payload) => {
 }
 
 const menusAPIFetch = (method, venue_id) => {
+  var token = localStorage.getItem('token');
   return fetch(`${baseURL}/api/v1/search/menus`, {
     method: `${method}`,
-    headers: {'Content-Type': 'application/json', 'venue_id': `${venue_id}`},
+    headers: {'Content-Type': 'application/json', 'venue_id': `${venue_id}`, 'Authorization': token},
   })
 }
 
@@ -53,9 +55,10 @@ const appendFood = (id, food) => {
 }
 
 const restaurantsAPIFetch = (method, near, query) => {
+  var token = localStorage.getItem('token');
   return fetch(`${baseURL}/api/v1/search/restaurants?near=${near}&query=${query}`, {
     method: `${method}`,
-    headers: {'Content-Type': 'application/json'},
+    headers: {'Content-Type': 'application/json', 'Authorization': token},
   })
 }
 
