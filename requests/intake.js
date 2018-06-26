@@ -11,7 +11,8 @@ const intakeAPIFetch = (method, body) => {
 
 const postTags = (method, tags) => {
   var token = localStorage.getItem('token');
-  fetch(`${baseURL}/api/v1/intakes`, {
+  var id = localStorage.getItem('questionnaire_id');
+  fetch(`${baseURL}/api/v1/questionnaires/${id}/intakes`, {
     method: `${method}`,
     headers: {'Content-Type': 'application/json', 'Tags': `${JSON.stringify(tags)}`, 'Authorization': token},
   })

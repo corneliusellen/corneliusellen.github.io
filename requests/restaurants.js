@@ -1,17 +1,5 @@
 const baseURL = require('./railsAPI').baseURL()
 
-const foodsAPIFetch = (method, payload) => {
-  var token = localStorage.getItem('token');
-  return fetch(`${baseURL}/api/v1/foods`, {
-    method: `${method}`,
-    headers: {'Content-Type': 'application/json', 'foods': `${JSON.stringify(payload)}`, 'Authorization': token},
-  })
-}
-
-const postFoods = (payload) => {
-  foodsAPIFetch('POST', payload)
-}
-
 const menusAPIFetch = (method, venue_id) => {
   var token = localStorage.getItem('token');
   return fetch(`${baseURL}/api/v1/search/menus`, {
@@ -109,6 +97,5 @@ const handleResponse = (response) => {
 
 module.exports = {
   getRestaurants,
-  getMenus,
-  postFoods
+  getMenus
 }
