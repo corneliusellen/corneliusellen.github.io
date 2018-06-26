@@ -18,6 +18,12 @@ const logoutSubmit = function() {
   })
 }
 
+const createForm = function() {
+  $('.create-form').on('click', function() {
+    questionnaireRequests.createQuestionnaire()
+  })
+}
+
 const etiologyIdentified = function() {
   $('#etiology-yes').on('click', function() {
     $('#etiology-no').removeClass('marked');
@@ -161,7 +167,7 @@ const sendFoods = function() {
         [food.getElementsByTagName('p')[0].innerHTML, food.getElementsByTagName('p')[1].innerHTML]
       )
     })
-    restaurantRequests.postFoods(payload)
+    questionRequests.postFoods(payload)
   })
 }
 
@@ -185,6 +191,7 @@ const populateQuestions = function() {
 module.exports = {
   loginSubmit,
   logoutSubmit,
+  createForm,
   marked,
   markedSmallBox,
   markedFoodButton,

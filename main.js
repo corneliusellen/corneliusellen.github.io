@@ -15,6 +15,7 @@ $(document).ready(function() {
   $('.menus').hide()
   events.loginSubmit()
   events.logoutSubmit()
+  events.createForm()
   events.etiologyIdentified()
   events.symptomOptions()
   events.etiologyOptions()

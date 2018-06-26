@@ -1,8 +1,22 @@
 const baseURL = require('./railsAPI').baseURL()
 
+const foodsAPIFetch = (payload) => {
+  var token = localStorage.getItem('token');
+  var id = localStorage.getItem('questionnaire_id');
+  return fetch(`${baseURL}/api/v1/questionnaires/${id}/foods`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'foods': `${JSON.stringify(payload)}`, 'Authorization': token},
+  })
+}
+
+const postFoods = (payload) => {
+  foodsAPIFetch(payload)
+}
+
 const questionsAPI = (path) => {
   var token = localStorage.getItem('token');
-  return fetch(`${baseURL}/api/v1/${path}`, {
+  var id = localStorage.getItem('questionnaire_id');
+  return fetch(`${baseURL}/api/v1/questionnaires/${id}/${path}`, {
     method: 'GET',
     headers: {'Content-Type': 'application/json', 'Authorization': token},
   })
@@ -157,5 +171,6 @@ module.exports = {
   getClinicals,
   getExposures,
   getQuestions,
-  getMenuItems
+  getMenuItems,
+  postFoods
 }
