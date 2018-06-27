@@ -161,14 +161,13 @@ button:focus {
 .selection {
   display: flex;
   justify-content: space-between;
-  border: 3px solid $cdc-blue;
-  background-color: white;
   cursor: pointer;
   padding: 5px 20px;
   margin: 10px 20px;
   letter-spacing: 1px;
   font-size: 14px;
   color: $gunmetal;
+  background-color: #ececec;
   font-family: Arial;
 
 }
@@ -259,6 +258,10 @@ button:focus {
     max-width: 130px;
     align-items: center;
     margin: 2px;
+  }
+
+  input {
+    height: 30px;
   }
 }
 

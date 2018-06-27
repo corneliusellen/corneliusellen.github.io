@@ -13,6 +13,9 @@ $(document).ready(function() {
   $('.options-restaurants').hide()
   $('.header.menu-items').hide()
   $('.menus').hide()
+  events.clickDelete()
+  events.clickView()
+  events.clearFormId()
   events.loginSubmit()
   events.logoutSubmit()
   events.createForm()
@@ -44,5 +47,7 @@ const renderData = (fileName) => {
     events.populateExposures()
   } else if (fileName === 'builder.html' || fileName === 'builder') {
     events.populateQuestions()
+  } else if (fileName === 'dashboard.html' || fileName === 'dashboard') {
+    events.populateForms()
   }
 }

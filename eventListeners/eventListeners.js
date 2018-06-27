@@ -4,6 +4,31 @@ var tagRequests = require('../requests/intake')
 var questionRequests = require('../requests/questions')
 var questionnaireRequests = require('../requests/questionnaire')
 
+const clickView = function() {
+  $(document).on('click', '.view', function() {
+    var questionnaire_id = this.id;
+    localStorage.setItem('questionnaire_id', questionnaire_id)
+  })
+}
+
+const clickDelete = function() {
+  $(document).on('click', '.delete', function() {
+    var questionnaire_id = this.id;
+    $('.delete').parent().remove();
+    questionnaireRequests.deleteQuestionnaire(questionnaire_id)
+  })
+}
+
+const clearFormId = function() {
+  $('#build').on('click', function() {
+    localStorage.removeItem('questionnaire_id')
+  })
+}
+
+const populateForms = function() {
+  questionnaireRequests.getForms()
+}
+
 const loginSubmit = function() {
   $('#login-button').on('click', function() {
     var email = document.getElementById('email').value;
@@ -20,7 +45,8 @@ const logoutSubmit = function() {
 
 const createForm = function() {
   $('.create-form').on('click', function() {
-    questionnaireRequests.createQuestionnaire()
+    var title = $('#form-title').val()
+    questionnaireRequests.createQuestionnaire(title)
   })
 }
 
@@ -189,8 +215,12 @@ const populateQuestions = function() {
 }
 
 module.exports = {
+  clickDelete,
+  clickView,
+  clearFormId,
   loginSubmit,
   logoutSubmit,
+  populateForms,
   createForm,
   marked,
   markedSmallBox,

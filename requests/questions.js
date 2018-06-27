@@ -52,9 +52,10 @@ const getQuestions = () => {
 }
 
 const appendEachQuestion = (questions) => {
-  return questions.forEach(question => {
+  questions.forEach(question => {
     appendQuestion(question)
-  })
+  });
+  numberQuestions()
 }
 
 const appendQuestion = (question) => {
@@ -92,6 +93,14 @@ const appendExposureSection = (question) => {
       <div class="select answer">${question.answers}</div>
     </div>`
   )
+}
+
+const numberQuestions = () => {
+  var quesion_text = $('body').find('.select.question')
+  var array = []
+  Object.entries(quesion_text).forEach(([key, value], index) => {
+    value.prepend(`${index + 1}. `)
+  })
 }
 
 const getExposures = () => {
