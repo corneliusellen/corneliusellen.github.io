@@ -9,7 +9,9 @@ const fetchToken = (method, email, password) => {
 
 const getToken = (email, password) => {
   fetchToken('POST', email, password)
-  .then(response => handleResponse(response))
+  .then(response => {
+    handleResponse(response)
+  })
   .then(token => handleToken(token))
   .catch(error => console.error({ error }))
 }
@@ -20,7 +22,6 @@ const handleToken = (token) => {
 }
 
 const handleResponse = (response) => {
-  console.log("HEY");
   return response.json()
     .then(json => {
       if (!response.ok) {

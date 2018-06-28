@@ -4,6 +4,24 @@ var tagRequests = require('../requests/intake')
 var questionRequests = require('../requests/questions')
 var questionnaireRequests = require('../requests/questionnaire')
 
+const addSelected = function() {
+  $(document).on('click', '#add-selected', function() {
+    var marked = $('body').find('.marked.universal')
+    var questions = []
+    Object.entries(marked).forEach(([key, value]) => {
+      questions.push(value.value)
+    });
+    questions.splice(-2,2);
+    questionnaireRequests.patchQuestionnaire("PUT", questions);
+  })
+}
+
+const flash = function() {
+  $('#build').click(function() {
+    questionRequests.getUniversal();
+  })
+}
+
 const clickView = function() {
   $(document).on('click', '.view', function() {
     var questionnaire_id = this.id;
@@ -12,16 +30,16 @@ const clickView = function() {
 }
 
 const clickDelete = function() {
-  $(document).on('click', '.delete', function() {
+  $(document).on('click', '.delete', function(event) {
     var questionnaire_id = this.id;
-    $('.delete').parent().remove();
+    $(event.target).parent().remove();
     questionnaireRequests.deleteQuestionnaire(questionnaire_id)
   })
 }
 
 const clearFormId = function() {
-  $('#build').on('click', function() {
-    localStorage.removeItem('questionnaire_id')
+  $('#finish').on('click', function() {
+    localStorage.removeItem('questionnaire_id');
   })
 }
 
@@ -85,7 +103,7 @@ const settingOptions = function() {
 }
 
 const marked = function() {
-  $('body').on('click', 'button', function() {
+  $('body').on('click', '.fillbutton', function() {
     $(this).toggleClass('marked')
   })
 }
@@ -215,6 +233,7 @@ const populateQuestions = function() {
 }
 
 module.exports = {
+  flash,
   clickDelete,
   clickView,
   clearFormId,
@@ -238,6 +257,7 @@ module.exports = {
   sendClinicals,
   sendExposures,
   sendFoods,
+  addSelected,
   populateDemographics,
   populateClinicals,
   populateExposures,

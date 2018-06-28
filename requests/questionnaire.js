@@ -20,7 +20,9 @@ const questionnaireFetch = (method, title) => {
 const createQuestionnaire = (title) => {
   questionnaireFetch('POST', title)
   .then(response => handleResponse(response))
-  .then(id => saveId(id))
+  .then(id => {
+    saveId(id)
+  })
   .catch(error => console.error({ error }))
 }
 
@@ -47,8 +49,8 @@ const appendForm = (form) => {
     `<div class="questionnaire">
     <img src="./lib/stylesheets/form.png" alt="form icon">
     <div>${form.title}</div>
-    <a href="builder.html"><button id="${form.id}" class="view" type="button" name="view">View</button></a>
-    <button id="${form.id}" class="delete" type="button" name="delete">Delete</button>
+    <a href="builder.html"><button id="${form.id}" class="linkbutton view" type="button" name="view">View</button></a>
+    <button id="${form.id}" class="linkbutton delete" type="button" name="delete">Delete</button>
     </div>`
   )
 }

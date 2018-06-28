@@ -40,7 +40,7 @@ const appendTags = (section) => {
 const appendTag = (tag, sectionName) => {
   if (tag.options.length == 0) {
     $(`.options.${sectionName}`).children().append(
-      `<button type="button" value="${tag.id}" name="button">${tag.name}</button>`
+      `<button class="fillbutton" type="button" value="${tag.id}" name="button">${tag.name}</button>`
     )
   } else {
     $(`.options.${sectionName}`).append(
@@ -48,7 +48,7 @@ const appendTag = (tag, sectionName) => {
     )
     tag.options.forEach(option => {
       $(`.category-box.${tag.name}`).append(
-        `<button type="button" value="${option.tag_id}" name="button">${option.name}</button>`
+        `<button class="fillbutton" type="button" value="${option.tag_id}" name="button">${option.name}</button>`
       )
     })
   }

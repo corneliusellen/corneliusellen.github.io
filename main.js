@@ -13,6 +13,7 @@ $(document).ready(function() {
   $('.options-restaurants').hide()
   $('.header.menu-items').hide()
   $('.menus').hide()
+  events.flash()
   events.clickDelete()
   events.clickView()
   events.clearFormId()
@@ -34,6 +35,7 @@ $(document).ready(function() {
   events.sendClinicals()
   events.sendExposures()
   events.sendFoods()
+  events.addSelected()
 })
 
 const renderData = (fileName) => {
@@ -49,5 +51,7 @@ const renderData = (fileName) => {
     events.populateQuestions()
   } else if (fileName === 'dashboard.html' || fileName === 'dashboard') {
     events.populateForms()
+  } else if (fileName === 'review.html' || fileName === 'review') {
+    events.populateQuestions()
   }
 }

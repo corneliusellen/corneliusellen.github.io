@@ -118,7 +118,7 @@ const appendEachExposureQuestion = (questions) => {
 
 const appendExposureQuestion = (question) => {
   $('.options.exposure').append(
-    `<button type="button" name="button" value="${question.id}">${question.text}</button>`
+    `<button class="fillbutton" type="button" name="button" value="${question.id}">${question.text}</button>`
   )
 }
 
@@ -137,7 +137,7 @@ const appendEachClinicalQuestion = (questions) => {
 
 const appendClinicalQuestion = (question) => {
   $('.options.clinical').append(
-    `<button type="button" name="button" value="${question.id}">${question.text}</button>`
+    `<button class="fillbutton" type="button" name="button" value="${question.id}">${question.text}</button>`
   )
 }
 
@@ -156,7 +156,7 @@ const appendEachDemographicQuestion = (questions) => {
 
 const appendDemographicQuestion = (question) => {
   $('.options.demographics').append(
-    `<button type="button" name="button" value="${question.id}">${question.text}</button>`
+    `<button class="fillbutton" type="button" name="button" value="${question.id}">${question.text}</button>`
   )
 }
 
@@ -175,11 +175,37 @@ const handleResponse = (response) => {
     })
 }
 
+const fetchUniversal  = (id) => {
+  var token = localStorage.getItem('token');
+  return fetch(`${baseURL}/api/v1/questionnaires/${id}/universal`, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json', 'Authorization': token}
+  })
+}
+
+const appendUniversals = function(questions) {
+  var array = questions.map(question => {
+    return `<button class="fillbutton universal" type="button" name="button" value="${question.id}">${question.text}</button>`
+  });
+  return array.join("")
+}
+
+const getUniversal = function() {
+  var id = localStorage.getItem('questionnaire_id');
+  fetchUniversal(id)
+  .then(response => handleResponse(response))
+  .then(questions => {
+    var didYouForget = appendUniversals(questions);
+    $.alert(`${didYouForget}`, {autoClose:false, type: 'warning', title:"Do you want to add these standard questions to your questionnaire?", position: ['center']})
+  });
+}
+
 module.exports = {
   getDemographics,
   getClinicals,
   getExposures,
   getQuestions,
   getMenuItems,
-  postFoods
+  postFoods,
+  getUniversal
 }
