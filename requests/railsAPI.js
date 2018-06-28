@@ -3,7 +3,7 @@ const baseURL = () => {
   if (host === "localhost" || host === "127.0.0.1") {
     return `http://localhost:3000`
   } else {
-    return `https://outbreak-ready-be.herokuapp.com`
+    return `http://localhost:3000`
   }
 
 }
