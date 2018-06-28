@@ -13,6 +13,10 @@ $(document).ready(function() {
   $('.options-restaurants').hide()
   $('.header.menu-items').hide()
   $('.menus').hide()
+  events.flash()
+  events.clickDelete()
+  events.clickView()
+  events.clearFormId()
   events.loginSubmit()
   events.logoutSubmit()
   events.createForm()
@@ -31,6 +35,7 @@ $(document).ready(function() {
   events.sendClinicals()
   events.sendExposures()
   events.sendFoods()
+  events.addSelected()
 })
 
 const renderData = (fileName) => {
@@ -43,6 +48,10 @@ const renderData = (fileName) => {
   } else if (fileName === 'exposures.html' || fileName === 'exposures') {
     events.populateExposures()
   } else if (fileName === 'builder.html' || fileName === 'builder') {
+    events.populateQuestions()
+  } else if (fileName === 'dashboard.html' || fileName === 'dashboard') {
+    events.populateForms()
+  } else if (fileName === 'review.html' || fileName === 'review') {
     events.populateQuestions()
   }
 }

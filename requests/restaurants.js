@@ -9,7 +9,7 @@ const menusAPIFetch = (method, venue_id) => {
 }
 
 const getMenus = () => {
-  let venue_id = $('body').find('.marked')[1].getAttribute('value')
+  let venue_id = $('body').find('.marked')[0].getAttribute('value')
   menusAPIFetch('GET', venue_id)
   .then(response => handleResponse(response))
   .then(menus => appendEachMenu(menus))
